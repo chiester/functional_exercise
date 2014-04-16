@@ -14,34 +14,34 @@
 
 //var strings = ['a', 'a', 'b', 'c']
 var strings = ['t', 'a', 't', 'b', 'b', 'b', 't', 't', 'c', 'c', 't', 'c']
-  .reduce(function(last, now) {
-    var index = last[0].indexOf(now);
-    if (index === -1) {
-      last[0].push(now);
-      last[1].push(1);
+  .reduce(function(oldValue, newValue) {
+    var m = oldValue[0].indexOf(newValue);
+    if (m === -1) {
+      oldValue[0].push(newValue);
+      oldValue[1].push(1);
     } else {
-      last[1][index] += 1;
+      oldValue[1][m] += 1;
     }
-    return last;
+    return oldValue;
   }, [
     [],
     []
-  ]).reduce(function(last, now, index, context) {
-    var zip = [];
-    last.forEach(function(word, i) {
-      zip.push([word, context[1][i]])
+  ]).reduce(function(oldValue, newValue, index, context) {
+    var x = [];
+    oldValue.forEach(function(string, i) {
+      x.push([string, context[1][i]])
     });
-    return zip;
+    return x;
   })
-.sort(function(a, b) {
-  if (a[1] > b[1])
-    return -1;
-  else if (a[1] < b[1]) {
-    return 1;
-  } else {
-    return 0;
-  }
-});
+  .sort(function(a, b) {
+    if (a[1] > b[1])
+      return -1;
+    else if (a[1] < b[1]) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
 
 
 console.log(strings);
