@@ -14,6 +14,7 @@
 
 //var strings = ['a', 'a', 'b', 'c']
 var strings = ['t', 'a', 't', 'b', 'b', 'b', 't', 't', 'c', 'c', 't', 'c']
+var strings = ['the', 'quick', 'brown', 'fox', 'jumped', 'over', 'the', 'lazy', 'dog']
   .reduce(function(oldValue, newValue) {
     var m = oldValue[0].indexOf(newValue);
     if (m === -1) {
