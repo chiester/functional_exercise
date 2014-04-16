@@ -33,15 +33,14 @@ var strings = ['t', 'a', 't', 'b', 'b', 'b', 't', 't', 'c', 'c', 't', 'c']
     });
     return zip;
   })
-
 .sort(function(a, b) {
   if (a[1] > b[1])
     return -1;
   else if (a[1] < b[1]) {
     return 1;
+  } else {
+    return 0;
   }
-  // a must be equal to b
-  return 0;
 });
 
 
